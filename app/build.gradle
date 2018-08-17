@@ -1,5 +1,5 @@
 apply plugin: 'com.android.application'
-apply plugin: 'me.tatarka.retrolambda'
+
 
 android {
     compileSdkVersion 25
@@ -12,6 +12,9 @@ android {
         targetSdkVersion 25
         versionCode 1
         versionName "1.0"
+        jackOptions {
+            enabled true
+        }
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
         multiDexEnabled true
     }
@@ -31,6 +34,12 @@ android {
             jniLibs.srcDirs = ['libs']
         }
     }
+    android {
+        lintOptions {
+            abortOnError false
+        }
+    }
+
     repositories { flatDir { dirs 'libs' } }
 }
 
